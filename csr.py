@@ -60,13 +60,6 @@ class CRD:
         os.system("systemctl disable lightdm.service")
 
     @staticmethod
-    def installGoogleChorme():
-        print("Installing Google Chrome")
-        subprocess.run(["wget", "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"], stdout=subprocess.PIPE)
-        subprocess.run(["dpkg", "--install", "google-chrome-stable_current_amd64.deb"], stdout=subprocess.PIPE)
-        subprocess.run(['apt', 'install', '--assume-yes', '--fix-broken'], stdout=subprocess.PIPE)
-
-    @staticmethod
     def finish():
         print("Finalizing")
         os.system(f"adduser {username} chrome-remote-desktop")
