@@ -1,3 +1,6 @@
+#@title **Create User**
+#@markdown Enter Username and Password
+
 import os
 import subprocess
 
@@ -20,12 +23,22 @@ os.system("sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd")
 
 print("User Created and Configured")
  
-#Download ngrok
-wget -q -c -nc https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-unzip -qq -n ngrok-stable-linux-amd64.zip
- 
-#Setup sshd
-apt-get install -qq -o=Dpkg::Use-Pty=0 openssh-server pwgen > /dev/null
+    #@title **RDP**
+#@markdown  It takes 4-5 minutes for installation
+    
+ class CRD:
+    def __init__(self):
+        os.system("apt update")
+        self.installSSH()
+
+
+    @staticmethod
+    def installSSH():
+        print("Installing openssh")
+        subprocess.run(['wget', 'https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip'], stdout=subprocess.PIPE)
+        subprocess.run(['unzip', '-qq', '-n', 'ngrok-stable-linux-amd64.zip'], stdout=subprocess.PIPE)
+        subprocess.run(['apt', 'install', '-qq', '-o=Dpkg::Use-Pty=0', 'openssh-server', 'pwgen'], stdout=subprocess.PIPE)   
+    
  
 #Set root password
 echo root:$password | chpasswd
