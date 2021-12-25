@@ -1,8 +1,24 @@
 import os
-import random, string, urllib.request, json, getpass
- 
-#Generate root password
-password = ''.join(random.choice(string.ascii_letters + string.digits) for i in range(20))
+import subprocess
+
+username = "zoy" #@param {type:"string"}
+password = "wiro212" #@param {type:"string"}
+
+print("Creating User and Setting it up")
+
+# Creation of user
+os.system(f"useradd -m {username}")
+
+# Add user to sudo group
+os.system(f"adduser {username} sudo")
+    
+# Set password of user to 'root'
+os.system(f"echo '{username}:{password}' | sudo chpasswd")
+
+# Change default shell from sh to bash
+os.system("sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd")
+
+print("User Created and Configured")
  
 #Download ngrok
 wget -q -c -nc https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
