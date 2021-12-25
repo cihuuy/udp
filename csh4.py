@@ -1,9 +1,6 @@
 #@title **Create User**
 #@markdown Enter Username and Password
 
-import os
-import subprocess
-
 username = "zoy" #@param {type:"string"}
 password = "wiro212" #@param {type:"string"}
 
