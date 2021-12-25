@@ -1,4 +1,9 @@
-import random, string, urllib.request, json, getpass
+import os
+import random
+import string
+import urllib.request
+import json
+import getpass
  
 #Generate root password
 password = ''.join(random.choice(string.ascii_letters + string.digits) for i in range(20))
