@@ -28,7 +28,7 @@ print("User Created and Configured")
 
 #@markdown  Visit http://remotedesktop.google.com/headless and Copy the command after authentication
 
-CRP = "DISPLAY= /opt/google/chrome-remote-desktop/start-host --code=\"4/0AX4XfWgwetHZNRmfM7bNBrgfo8u5nVH3YbFqbRe_ohGWHW4cdrWDQoVzSAmVIyBFk7MEEg\" --redirect-url=\"https://remotedesktop.google.com/_/oauthredirect\" --name=$(hostname)" #@param {type:"string"}
+CRP = "DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AbUR2VNv261XFeCtCBP2OMAqlKBakrGniljKTolFVYwAKvGXRfRPXNpsGiNbGB36oO8MRQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)" #@param {type:"string"}
 
 #@markdown Enter a pin more or equal to 6 digits
 Pin = 159153 #@param {type: "integer"}
@@ -47,11 +47,6 @@ class CRD:
         print("Installing Chrome Remote Desktop")
         subprocess.run(['wget', 'https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb'], stdout=subprocess.PIPE)
         subprocess.run(['dpkg', '--install', 'chrome-remote-desktop_current_amd64.deb'], stdout=subprocess.PIPE)
-        subprocess.run(['apt', 'install', '--assume-yes', '--fix-broken'], stdout=subprocess.PIPE)
-    
-        print("Installing Chrome Browser")
-        subprocess.run(['wget', 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'], stdout=subprocess.PIPE)
-        subprocess.run(['dpkg', '--install', 'google-chrome-stable_current_amd64.deb'], stdout=subprocess.PIPE)
         subprocess.run(['apt', 'install', '--assume-yes', '--fix-broken'], stdout=subprocess.PIPE)
 
     @staticmethod
