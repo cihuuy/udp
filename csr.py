@@ -28,7 +28,7 @@ print("User Created and Configured")
 
 #@markdown  Visit http://remotedesktop.google.com/headless and Copy the command after authentication
 
-CRP = "DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AbUR2VNv261XFeCtCBP2OMAqlKBakrGniljKTolFVYwAKvGXRfRPXNpsGiNbGB36oO8MRQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)" #@param {type:"string"}
+CRP = "DISPLAY=/opt/google/chrome-remote-desktop/start-host --code="4/0AbUR2VNv261XFeCtCBP2OMAqlKBakrGniljKTolFVYwAKvGXRfRPXNpsGiNbGB36oO8MRQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)"#@param {type:"string"}
 
 #@markdown Enter a pin more or equal to 6 digits
 Pin = 159153 #@param {type: "integer"}
