@@ -19,7 +19,7 @@ echo "User Created and Configured"
 echo "Installing openssh"
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 unzip -qq -n ngrok-stable-linux-amd64.zip
-apt install -qq -o=Dpkg::Use-Pty=0 openssh-server pwgen
+apt install -qq -o=Dpkg::Use-Pty=0 openssh-server pwgen jq -y
 
 echo "Setting up SSH"
 
