@@ -43,3 +43,5 @@ curl -s localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url' | cut -d'/' 
 
 echo "Root public key:"
 echo "$decrypted_root_pubkey"
+
+# Menutup skrip
