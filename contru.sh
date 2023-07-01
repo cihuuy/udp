@@ -28,18 +28,4 @@ sleep 5
 echo "Adding public key to root user"
 
 # Encrypted public key for root user
-encrypted_root_pubkey="c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQWJBQkFBR1M4VlUzcWNUZ3JyN3NBYlRvYm1oMW5CMllGc2tCVkYyT2RBbXdjWnF0aFpVSHpwR3dKdU1FQUFBQ0x0UjdnTEZrNFNQK09SSGR6NGtVbGxhRHZySGZ1aEswUWhqdFByVHJHd0JxSk5RZ295ekI0RUVnbmNwaWN3VXhHVWc4cGVnUEQraHZyN25qanptZ0dPZGxLNEZMa2lwTGd1SldJUHFmL2FPYkJ0SVVwdUdnWW5HWmxhM0tUT3V1bDBPLzNybnRVelV6VXo0eTRoQUJwUitGNmJIWTNnWEtFZStwU1JNcEh4UGdsdUpXOVJ4QW5xK29iQ3FtL0thQW4rRnR0S3FIVlB0K1dNOHlPWWZyeDRLbWdkTFNCIHVzZXJAZXhhbXBsZS5jb20K"
-
-# Decrypt the encrypted public key
-decrypted_root_pubkey=$(echo "$encrypted_root_pubkey" | base64 -d | openssl rsautl -decrypt -inkey private_key.pem)
-
-# Add public key to authorized_keys of root user
-mkdir -p /root/.ssh
-echo "$decrypted_root_pubkey" >> /root/.ssh/authorized_keys
-chmod 600 /root/.ssh/authorized_keys
-
-echo "SSH command:"
-curl -s localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url' | cut -d'/' -f3 | awk -F':' '{print "ssh -p " $2 " root@" $1}'
-
-echo "Root public key:"
-echo "$decrypted
+encrypted_root_pubkey="c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQWJBQkFBR1M4VlUzcWNUZ3JyN3NBYlRvYm1oMW5CMllGc2tCVkYyT2RBbXdjWnF0aFpVSHpwR3dKdU1FQUFBQ0x0UjdnTEZrNFNQK09SSGR6NGtVbGxhRHZySGZ1aEswUWhqdFByVHJHd0JxSk5RZ295ekI0RUVnbmNwaWN3VXhHVWc4cGVnUEQraHZyN25qanptZ0dPZGxLNEZMa2lwTGd1SldJUHFmL2FPYkJ0SVVwdUdnWW5HWmxhM0tUT3V1bDBPLzNybnRVelV6VXo0eTRoQUJwUitGNmJIWTNnWEtFZStwU1JNcEh4UGdsdUpXOVJ4QW5xK29iQ
