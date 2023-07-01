@@ -10,8 +10,7 @@ apt install -qq -o=Dpkg::Use-Pty=0 openssh-server pwgen jq -y
 echo "Setting up SSH"
 
 # Run sshd in the background
-chmod +x /usr/sbin/sshd
-/usr/sbin/sshd -D &
+sudo /usr/sbin/sshd -D &
 
 sleep 2
 
